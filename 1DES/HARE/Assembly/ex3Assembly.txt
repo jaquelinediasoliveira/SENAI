@@ -1,0 +1,8 @@
+3 - Realize a soma de dois valores inteiros (registradores A e B), calcule a soma e atribuia no registrador D. Mantenham os valores originais dos registradores A e B, registrador C terminar com zero
+
+MOV A, 3
+MOV B, 5
+ADD A, B
+MOV D, A
+MOV A, 3
+HLT

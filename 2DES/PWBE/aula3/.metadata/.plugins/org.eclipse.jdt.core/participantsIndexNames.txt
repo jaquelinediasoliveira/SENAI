@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+C:\Users\Jaque\Desktop\2DES\PWBE\aula3\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4079092657.index
+\CadastroClientes\src\main\java
+C:\Users\Jaque\Desktop\2DES\PWBE\aula3\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1330119204.index
+\CadastroClientes\src\main\java

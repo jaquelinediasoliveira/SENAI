@@ -1,0 +1,40 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class ManipulacaoDados {
+
+	public static void main(String[] args) {
+		
+		try {
+
+			// FileWriter
+			// BufferedWriter
+			
+			FileWriter file = new FileWriter("data.txt", true);
+			BufferedWriter bw = new BufferedWriter(file);
+			
+			bw.write("Teste de escrita\r\n");
+			
+			bw.close();
+			file.close();
+		} catch (IOException e) {
+			System.out.println("Falha ao abrir o arquivo para escrita");
+		}
+		try {
+			
+			FileReader fr = new FileReader("data.txt");
+			BufferedReader br = new BufferedReader(fr);
+			
+			System.out.println(br.readLine());
+			
+			br.close();
+			fr.close();
+		}catch (IOException e) {
+			System.out.println("Falha ao abrir o arquivo");
+		}
+	}
+
+}

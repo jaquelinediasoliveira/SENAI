@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iFoge</title>
+    <link rel="icon" href="../assets/55240.png" />
+    <link rel='stylesheet' href="./style.css"/>
+    <link rel='stylesheet' href="../Global/Style.css"/>
+</head>
+<body>
+    <header>
+        <image id='logo' src="../assets/55240.png" alt="logo" />
+        <h1>iFoge</h1>
+    </header>
+    <main>
+        <div class="div">
+            <image id='user' src="../assets/MicrosoftTeams-image.png" alt="user" />
+            <form>
+                <input type="text" placeholder="E-mail" id="email">
+                <input type="password" placeholder="Senha" id="senha">
+                <input type="file" id="foto" hidden>
+                <img src="../assets/camera.png" alt="camera" id="camera" width="32" hidden/>
+                <a onclick="cadastrar()">Cadastrar-se</a>
+                <button type="button" id="login" onclick="conectar()">Login</button>
+            </form>
+        </div>
+    </main>
+</body>
+<script src="../Global/md5.js"></script>
+<script src="./script.js"></script>
+</html>

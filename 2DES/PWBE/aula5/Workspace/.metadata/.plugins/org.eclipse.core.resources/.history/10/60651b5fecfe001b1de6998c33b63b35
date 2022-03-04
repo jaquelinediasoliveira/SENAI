@@ -1,0 +1,24 @@
+<%@page import="vo.NotaFiscal"%>
+<%@page import="ctr.NotaFiscalProcess"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nota Fiscal Virtual</title>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<caption> Nota Fiscal Online</caption>
+	<table>
+		<%
+			NotaFiscalProcess.abrir();
+			for(NotaFiscal nf: NotaFiscalProcess.compras){
+				out.print(nf.toHTML());
+			}
+			out.print(NotaFiscalProcess.salvar());
+		%>
+	</table>
+</body>
+</html>

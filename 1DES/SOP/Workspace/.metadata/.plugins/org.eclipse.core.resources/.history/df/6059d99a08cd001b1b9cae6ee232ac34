@@ -1,0 +1,18 @@
+package visao;
+
+import java.util.Scanner;
+
+public class TelaViagens {
+	public static int menu=0; /*Atributo*/
+	public static Scanner leia = new Scanner(System.in);
+	public static void main(String[] args) {
+		String[] itens = {"1.Cadastro","2.Listar","3.Sair"};
+		menu = menu(itens);
+	}
+	public static int menu(String[] itens) {
+		for(String i: itens) {
+			System.out.println(i);
+		}
+		return leia.nextInt();
+	}
+}

@@ -1,0 +1,30 @@
+<%@page import="vo.NotaFiscal"%>
+<%@page import="ctr.NotaFiscalProcess"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Descrição</th>
+			<th>Quantidade</th>
+			<th>Valor und</th>
+			<th>Preço</th>
+		</tr>
+		<%
+			NotaFiscalProcess.abrir();
+			for(NotaFiscal nf: NotaFiscalProcess.compras){
+				out.print(nf.toHTML());
+			}
+			
+			out.print(NotaFiscalProcess.salvar());
+		%>
+	</table>
+</body>
+</html>

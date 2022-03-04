@@ -1,0 +1,109 @@
+package vo;
+
+import java.text.ParseException;
+
+public class NotaFiscal {
+	private int Id;
+	private String Descricao;
+	private int Qtd;
+	private Double ValorUnidade;
+	private Double Preco;
+	
+	public NotaFiscal() {
+	}
+
+	public NotaFiscal(int id, String descricao, int qtd, Double valorUnidade, Double preco) {
+		Id = id;
+		Descricao = descricao;
+		Qtd = qtd;
+		ValorUnidade = valorUnidade;
+		Preco = preco;
+	}
+	
+	public NotaFiscal(String[] vetor) {
+		try {
+			this.Id = Integer.valueOf(vetor[0]);
+			this.Descricao = vetor[1];
+			this.Qtd = Integer.valueOf(vetor[2]);
+			this.ValorUnidade = Double.valueOf(vetor[3]);
+			this.Preco = Double.valueOf(vetor[4]);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
+	}
+
+	public String getDescricao() {
+		return Descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		Descricao = descricao;
+	}
+
+	public int getQtd() {
+		return Qtd;
+	}
+
+	public void setQtd(int qtd) {
+		Qtd = qtd;
+	}
+
+	public Double getValorUnidade() {
+		return ValorUnidade;
+	}
+
+	public void setValorUnidade(Double valorUnidade) {
+		ValorUnidade = valorUnidade;
+	}
+
+	public Double getPreco() {
+		return Preco;
+	}
+
+	public void setPreco(Double preco) {
+		Preco = preco;
+	}
+
+	@Override
+	public String toString() {
+		return Id + "\t" + Descricao + "\t" + Qtd + "\t" + ValorUnidade + "\t" + Preco + "\n";
+	}
+	
+	public String toCSV() {
+		return Id + ";" + Descricao + ";" + Qtd + ";" + ValorUnidade + ";" + Preco + "\r\n";
+	}
+	
+	public String toHTML() {
+		return "<tr><td>" + Id + "<td></td>" + Descricao + "<td></td>" + Qtd + "<td></td>" + ValorUnidade + "<td></td>" + Preco + "</td></tr>";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NotaFiscal other = (NotaFiscal) obj;
+		if (Id != other.Id)
+			return false;
+		return true;
+	}
+}

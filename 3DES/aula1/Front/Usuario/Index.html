@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="icon" href="../assets/55240.png" />
+    <script src="../Global/checklogin.js"></script>
+    <link rel="stylesheet" href="../Global/Style.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body onload="load()">
+    <header>
+        <img id="bot-voltar" src="../assets/botao-voltar.png" onclick="voltar()">
+        <h2>Usuário</h2>
+        <div class="vazio"></div>
+    </header>
+    <div class="container">
+        <div class="dados">
+            <img src="" alt="" id="imgUser" width="80">
+            <input type="text" id="emailUser" placeholder="Novo email...">
+            <input type="password" id="pswUser" placeholder="Nova senha...">
+            <input type="file" id="foto" hidden>
+            <img src="../assets/camera.png" alt="camera" id="camera" width="32">
+            <button onclick="atualizarDados()">Atualizar</button>
+        </div>
+        <div class="visualizacao">
+            <div class="alertas">
+                <h2>Alertas ativos</h2>
+                <img class="seta" alt="Seta" src="../assets/triangle.png" onclick="mostrarMeusAlertas(this)">
+            </div>
+            <div class="containercheck" id="alerts"></div>
+            <button id="salvar" onclick="salvarAlertasAtivos()">Salvar</button>
+        </div>
+        <div class="meusalertas">
+            <div class="alertas">
+                <h2>Meus alertas</h2>
+                <img class="seta" alt="Seta" src="../assets/triangle.png" onclick="mostrarMeusAlertas(this)">
+            </div>
+            <div class="containertable">
+                <table id="show">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Coordenadas</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../Global/md5.js"></script>
+<script src="./script.js"></script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" href="../assets/55240.png" />
+    <script src="../Global/checklogin.js"></script>
+    <link rel='stylesheet' href="../Global/Style.css"/>
+    <link rel='stylesheet' href="./style.css"/>
+</head>
+<body onload="inicializar()">
+    <header>
+        <img src="../assets/menu.png" alt="menu" id="menu-img" onclick="showMenu()" />
+        <div class="Logo">
+            <image id='img-logo' src="../assets/55240.png" alt="logo" />
+            <h1>iFoge</h1>
+        </div>
+        <div class="vazio"></div>
+    </header>
+    <main>
+        <div class="map"></div>
+        <div class="menu">
+            <span onclick="closeMenu()">
+                <h2 id="xis2">X</h2>
+            </span>
+            <ul>
+                <li onclick="config()">Configuração</li>
+                <li onclick="sair()">Sair</li>
+            </ul>
+        </div>
+        <div class="modal" hidden>
+            <div class="form-modal">
+                <h2 id="xis" onclick="closeModal()">X</h2>
+                <select id="alerta">
+                    <option value="Selecione" disabled selected>Selecione</option>
+                </select>
+                <button id="cadastrar" onclick="cadastro()">Cadastrar</button>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="./script.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0xWCNQwnEqDZ7I7obm7rQzTD9ZfY8bYE&callback=initMap&v=weekly" async></script>
+</html>

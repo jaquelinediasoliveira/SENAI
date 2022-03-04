@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+html, body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	heigth: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+table{
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+	heigth: 50%;
+	border: 2px solid black;
+}
+	

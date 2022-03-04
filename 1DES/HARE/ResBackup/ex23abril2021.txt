@@ -1,0 +1,56 @@
+Resumo sobre Backup
+
+ Os backups são feitos para a recuperação de dados em caso de perda da informação. Os arquivos são copiados em pendrives, HD, SSD e na nuvem.
+
+ Existem três tipos de backup:
+
+Backup Completo-> Mais básico; Cópia de todos os dados; Pode utilizar nuvem, armazenamento externo ou interno.
+	Vantagens: Precisa de apenas um arquivo para restauração.
+	Desvantagens: Demorado, backups quase idênticos.
+
+Backup Incremental-> Cópia de todos os dados que foram modificados desde o último backup COMPLETO ou INCREMENTAL.
+	Vantagens: Precisa de menos armazenamento, mais rápido.
+	Desvantagens: Demora mais tempo p/ a restauração.
+
+Backup Diferencial-> Semelhante ao incremental; Agrega no backup os dados modificados a partir do ultimo  backup COMPLETO.
+	Vantagens: Recuperação mais rápida pelos ultimos backups normais e diferenciais.
+	Desvantagens:Demora mais que o incremental no processo de backup.
+
+Mídias de backups:
+
+Antes-> Fitas
+Atualmente-> Discos
+Mudança-> Nuvens
+
+Armazenamento em nuvem:
+- Mantem todos os dispositivos em sincronia
+- Pode editar documentos por m navegador da web
+- Permite o compartilhamento fácil de pastas e arquivos
+
+Exercícios:
+
+1) Quais são as necessidades de fazer backup?
+
+Recuperar de uma maneira fácil os dados que podem ter sido perdidos por n motivos
+
+2) Explique sobre backup completo
+
+É a cópia de todos os dados e precisa de apenas um arquivo para restauração, mas não é necessário fazer com muita frequencia pois os backups vão sair quase iguais.
+
+3) Explique sobre backup incremental
+
+É cópia de todos os dados que foram modificados desde o último backup completo ou incremental. Precisa de menos armazenamento e o backup é mais rápido porém demora mais para restaurar os dados.
+
+4) Explique sobre backup diferencial
+
+Semelhante ao incremental, mas ele copia todos os dados modificados apenas desde o último backup completo. A recuperação de dados é mais rápida, porém o backup demora mais que o incremental.
+
+5) Fale sobre algumas vantagens de armazenamento em nuvem
+
+O armazenamento em nuvem é vantajoso pois mantem todos os dispositivos em sincronia, permite a edição de documentos pelo navegador e o compartilhamento de pastas e arquivos com outras pessoas é fácil.
+
+7)Pesquise sobre ransomware backup protection
+
+É um backup para a recuperação de dados em caso de ransomware, um tipo de software nocivo que restringe o acesso ao sistema infectado com uma espécie de bloqueio e cobra um resgate em criptomoedas para que o acesso possa ser restabelecido e caso não ocorra o mesmo, arquivos podem ser perdidos e até mesmo publicados.
+
+

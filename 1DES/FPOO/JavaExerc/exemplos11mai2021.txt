@@ -1,0 +1,77 @@
+import java.util.Scanner;
+
+public class ExercList1_3 {
+	public static void main(String args []) {
+	Scanner input = new Sacanner(System.in);
+
+	int a, b, c, d, e;
+
+	a = input.nextInt();
+	b = input.nextInt();
+	c = input.nextInt();
+	d = input.nextInt();
+	e = input.nextInt();
+
+	System.out.printf("O valor original é %d, e seu dobro é %d\n", a, (a * 2));
+	System.out.printf("O valor original é %d, e seu dobro é %d\n", b, (b * 2));
+	System.out.printf("O valor original é %d, e seu dobro é %d\n", c, (c * 2));
+	System.out.printf("O valor original é %d, e seu dobro é %d\n", d, (d * 2));
+	System.out.printf("O valor original é %d, e seu dobro é %d\n", e, (e * 2));
+
+	input.close();
+    }
+}
+
+Esse exercício pedia para ler 5 valores, mostra-los no print e seus dobros
+
+--------------------------------------------------------------------------------------
+import java.util.Scanner;
+import java.util.Locale;
+
+public class ExercList1_1 {
+	public static void main(String args []) {
+	Locale.setDefault(Locale.US)
+	Scanner input = new Sacanner(System.in);
+	float a, b, c, soma;
+
+	a = input.nextFloat();
+	b = input.nextFloat();
+	c = input.nextFloat();
+	soma = a + b + c
+
+	System.out.printf("A soma é: %f",soma);
+
+	input.close();
+    }
+}
+
+Esse exercício pede p/ criar 3 variáveis, soma-las e add o resultado em uma outra variável. Nesse caso add o resultado na variável soma
+
+--------------------------------------------------------------------------------------
+import java.util.Locale;
+import java.util.Scanner;
+
+public class ExercList1_5 {
+	public static void main(String args []) {
+	Locale.setDefault(Locale.US);
+	Scanner in = new Sacanner(System.in);
+	float a, b, c, delta;
+	double x1, x2;
+
+	a = input.nextFloat();
+	b = input.nextFloat();
+	c = input.nextFloat();
+
+	delta = (b * b) - (4 * a * c);
+	if (delta >= 0) {
+		x1 = (-b + Math.sqrt(delta)) / (2 * a);
+		x2 = (-b - Math.sqrt(delta)) / (2 * a);
+		System.out.printf("As raizes são: %f e%f", x1, x2);
+	
+    }
+	else {
+		System.out.println("Não há raizes reais");
+
+	input.close();
+    }
+}

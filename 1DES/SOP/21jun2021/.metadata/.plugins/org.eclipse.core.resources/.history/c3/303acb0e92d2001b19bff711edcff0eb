@@ -1,0 +1,16 @@
+package visao;
+
+import javax.swing.JFrame;
+
+public class FormViagens {
+
+	static JFrame tela = new JFrame();
+	
+	public static void main(String[] args) {
+		
+		tela.setSize(800, 600);
+		tela.setTitle("Qualquer coisa");
+		tela.setVisible(true);
+	}
+
+}

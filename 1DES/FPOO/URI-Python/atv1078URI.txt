@@ -1,0 +1,11 @@
+n = 0
+
+num = int(input(""))
+
+while n <=9:
+
+    n+=1
+
+    tabuada = n*num
+
+    print(n,"x",num ,"=",tabuada)

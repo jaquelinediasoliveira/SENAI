@@ -1,0 +1,28 @@
+package visao;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class FormViagens extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
+	private JPanel painel;
+	private JButton sair;
+	
+	FormViagens(){
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(800, 600);
+		setTitle("Registros de viagens");
+		setLocationRelativeTo(null);
+		painel = new JPanel();
+		setContentPane(painel);
+		
+		sair = new JButton("Sair");
+	}
+	
+	public static void main(String[] args) {
+		new FormViagens().setVisible(true);
+	}
+
+}

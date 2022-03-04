@@ -1,0 +1,53 @@
+package dao;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import vo.NotaFiscal;
+
+public class NotaFiscalDAO {
+
+	private BufferedReader br;
+	private BufferedWriter bw;
+	private String arquivo = "C:\\dbs\\compras.csv";
+	private ArrayList<NotaFiscal> compras;
+	private NotaFiscal compra;
+
+	public boolean salvar(ArrayList<NotaFiscal> compras) {
+		try {
+			bw = new BufferedWriter(new FileWriter(arquivo, false));
+			for (NotaFiscal nf : compras) {
+				bw.write(nf.toCSV());
+			}
+			bw.close();
+			return true;
+		} catch (IOException e) {
+			System.out.println("Erro ao gravar arquivo " + e);
+			return false;
+		}
+	}
+
+	public ArrayList<NotaFiscal> abrir() {
+		compras = new ArrayList<>();
+		try {
+			br = new BufferedReader(new FileReader(arquivo));
+			String linha = null;
+			while ((linha = br.readLine()) != null) {
+				compra = new NotaFiscal(linha.split(";"));
+				compras.add(compra);
+			}
+			br.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Arquivo não encontrado " + e);
+		} catch (IOException e) {
+			System.out.println("Erro ao ler arquivo " + e);
+		}
+		return compras;
+	}
+
+}

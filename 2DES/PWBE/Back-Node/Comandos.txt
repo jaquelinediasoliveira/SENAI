@@ -1,0 +1,22 @@
+--Iniciar projeto
+
+npm init
+
+--Vai dando enter até chegar no test command
+
+nodemon index.js
+
+--Mais enter e depois instala as dependências
+
+npm install cors
+npm install express
+npm install nodemon
+npm install mysql
+
+--Cria as pastas
+
+Model, controll, routes
+
+--Para startar o servidor depois de criado
+
+npm run test

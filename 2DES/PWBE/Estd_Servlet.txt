@@ -1,0 +1,329 @@
+Pacote Modelo:
+
+package model;
+
+public class Reservas {
+
+//Atributos
+
+	private int id;
+	private String nomeLivro;
+	private String nomePessoa;
+	private String dataDevolucao;
+
+//Metodos Acessores (getters and setters)
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getNomeLivro() {
+		return nomeLivro;
+	}
+	public void setNomeLivro(String nomeLivro) {
+		this.nomeLivro = nomeLivro;
+	}
+	public String getNomePessoa() {
+		return nomePessoa;
+	}
+	public void setNomePessoa(String nomePessoa) {
+		this.nomePessoa = nomePessoa;
+	}
+	public String getDataDevolucao() {
+		return dataDevolucao;
+	}
+	public void setDataDevolucao(String dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
+	}
+		
+}
+
+-------------------------------------------------------------------------------
+Pacote Controle:
+
+CLASSE DE CONEXÃO COM O BANCO:
+
+package controller;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConnectionDB {
+	private static String dns = "jdbc:mysql://localhost:3306/nomedobanco";
+	private static String usuario = "root";
+	private static String senha = "";
+	private static Connection con;
+	
+	public static Connection getConnection() {
+		try {
+			if(con == null || con.isClosed()) {
+				DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+				con = DriverManager.getConnection(dns,usuario,senha);
+			}
+			return con;
+		} catch (SQLException e) {
+			System.out.println("Erro ao conectar ao SGBD: "+e);
+			return null;
+		}
+	}
+}
+
+CLASSE DE PROCESSAMENTO:
+
+package controller;
+
+(IMPORTAÇÕES)
+
+public class ReservasProcess {
+	
+
+	//Método prepareStatement é usado para criar um objeto que representa a instrução SQL que será executada, sendo que é invocado através do objeto Connetion.
+	PreparedStatement ps;
+	//Representa uma conexão ao banco de dados
+	Connection con;
+	//ResultSet retorna todos os dados do banco
+	ResultSet rs;
+	
+	//Conecta a classe process à classe de conexão com o banco
+	public ReservasProcess() {
+		this.con = ConnectionDB.getConnection();
+	}
+	
+	public boolean create(Reservas reserva) {
+				//instrução SQL que será executada
+		String query = "INSERT INTO nomedatabelanobanco VALUES (DEFAULT, ?, ?, ?)";
+		
+		//Esse try está pegando a string query que possui a instrução sql e substituindo os campos vazios (?) pelos atributos
+		try {
+			ps = con.prepareStatement(query);
+			
+			ps.setString(1, reserva.getNomeLivro());
+			ps.setString(2, reserva.getNomePessoa());
+			ps.setString(3, reserva.getDataDevolucao());
+			
+			if(ps.executeUpdate() > 0) {
+				rs = ps.getGeneratedKeys();
+				//método next() permite que o ponteiro seja direcionado para a próxima linha do banco caso exista
+				rs.next();
+				int id = rs.getInt(1);
+				reserva.setId(id);
+				ps.close();
+				return true;
+			}
+			
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	
+	//Nesse read tem duas opções, listar todos ou a busca por nome do livro/nome pessoa
+	/É uma lógica situacional que foi usada apenas nesse caso
+	public JSONArray read(String nomePessoa, String nomeLivro) {		
+		JSONArray arr = new JSONArray();
+		
+		String query = "SELECT * FROM reservas";
+		
+		//Esse if é para ajustar a query
+		if(nomePessoa != null && nomeLivro != null) {
+			query += " WHERE nome_livro = ? AND nome_pessoa = ?";
+		}else if(nomePessoa != null || nomeLivro != null) {
+			String part = (nomePessoa != null) ? "nome_pessoa" : "nome_livro";
+			query += " WHERE " + part + " = ?";
+		}
+		
+		//Esse try é para preencher os dado
+		try {
+			ps = con.prepareStatement(query);
+			
+			if(nomePessoa != null && nomeLivro != null) {
+				ps.setString(1, nomeLivro);
+				ps.setString(2, nomePessoa);
+			}else if(nomePessoa != null || nomeLivro != null) {
+				//SELECT * FROM reservas WHERE nome_livro = ?
+				String busca = (nomePessoa != null) ? nomePessoa : nomeLivro;
+				ps.setString(1, busca);
+			}
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				JSONObject obj = new JSONObject();
+				obj.put("nome_pessoa", rs.getString("nome_pessoa"));
+				obj.put("nome_livro", rs.getString("nome_livro"));
+				obj.put("data_devolucao", rs.getString("data_devolucao"));
+				obj.put("id", rs.getInt("id"));
+				
+				arr.put(obj);
+			}
+			
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		return arr;
+		
+	}
+	
+	public boolean update(Reservas reserva) {
+		
+		String query = "UPDATE reservas SET nome_pessoa = ?, nome_livro = ?, " +
+					   "data_devolucao = ? WHERE id = ?";
+		
+		try {
+			ps = con.prepareStatement(query);
+			
+			ps.setString(1, reserva.getNomePessoa());
+			ps.setString(2, reserva.getNomeLivro());
+			ps.setString(3, reserva.getDataDevolucao());
+			ps.setInt(4, reserva.getId());
+			
+			if(ps.executeUpdate() > 0) {
+				ps.close();
+				return true;
+			}
+			
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	
+	public boolean delete(int id) {
+		
+		String query = "DELETE FROM reservas WHERE id = ?";
+		
+		try {
+			ps = con.prepareStatement(query);
+		
+			ps.setInt(1, id);
+			
+			if(ps.executeUpdate() > 0) {
+				ps.close();
+				return true;
+			}
+			
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Pacote View:
+
+package view;
+
+(Importações)
+
+@WebServlet("/reservas")
+public class ReservasHttp extends HttpServlet {
+	
+	private PrintWriter pw;
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		pw = resp.getWriter();
+		
+		String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+		
+		try {
+			JSONObject obj = new JSONObject(body);
+
+			//Variáveis	    //Atributos banco
+			String nomePessoa = obj.getString("nome_pessoa");
+			String nomeLivro = obj.getString("nome_livro");
+			String data = obj.getString("data_devolucao");
+			
+			//Setando as variáveis nos atributos
+			Reservas reserva = new Reservas();
+			reserva.setNomeLivro(nomeLivro);
+			reserva.setNomePessoa(nomePessoa);
+			reserva.setDataDevolucao(data);
+			
+			ReservasProcess rp = new ReservasProcess();
+			
+			if(rp.create(reserva)) {
+				//put pois é pra atualizar o id
+				obj.put("id", reserva.getId());
+				pw.write(obj.toString());
+			}else {
+				resp.setStatus(402);
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}		
+	}
+	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		ReservasProcess rp = new ReservasProcess();
+		pw = resp.getWriter();
+		
+		//Faz uma requisição (req) que pega os parametros dos atributos (req.getParameter("nome_...")) e passa para as strings
+		String nomePessoa = req.getParameter("nome_pessoa");
+		String nomeLivro = req.getParameter("nome_livro");
+		
+		JSONArray arr = rp.read(nomePessoa, nomeLivro);
+				
+		pw.write(arr.toString());
+	}
+	
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		pw = resp.getWriter();
+		ReservasProcess rp = new ReservasProcess();
+		
+		String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+		
+		try {
+			JSONObject obj = new JSONObject(body);
+			  //Variáveis	            //Atributos banco
+			String nomePessoa = obj.getString("nome_pessoa");
+			String nomeLivro = obj.getString("nome_livro");
+			String data = obj.getString("data_devolucao");
+			int id = obj.getInt("id");
+			
+			//Setando as variáveis nos atributos
+			Reservas reserva = new Reservas();
+			reserva.setId(id);
+			reserva.setNomePessoa(nomePessoa);
+			reserva.setNomeLivro(nomeLivro);
+			reserva.setDataDevolucao(data);
+			
+			if(rp.update(reserva) == true) {
+				pw.write(obj.toString());
+			}else {
+				resp.setStatus(401);
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}		
+	}
+	
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		pw = resp.getWriter();
+		ReservasProcess rp = new ReservasProcess();
+		
+		String tempId = req.getParameter("id");
+		int id = Integer.parseInt(tempId);
+		
+		if(rp.delete(id) == false) {
+			resp.setStatus(401);
+		}
+	}

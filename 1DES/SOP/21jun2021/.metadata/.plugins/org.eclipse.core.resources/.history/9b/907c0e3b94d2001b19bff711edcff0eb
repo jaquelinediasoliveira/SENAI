@@ -1,0 +1,33 @@
+package visao;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+public class FormViagens extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
+	private JPanel painel;
+	private JButton atualizar;
+	private JTextArea texto;
+	
+	FormViagens(){
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(800, 600);
+		setTitle("Registros de viagens");
+		setLocationRelativeTo(null);
+		painel = new JPanel();
+		setContentPane(painel);
+		
+		texto = new JTextArea("O conteúdo da tela");
+		painel.add(texto);
+		atualizar = new JButton("Atualizar");
+		painel.add(atualizar);
+	}
+	
+	public static void main(String[] args) {
+		new FormViagens().setVisible(true);
+	}
+
+}

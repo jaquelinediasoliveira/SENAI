@@ -1,0 +1,73 @@
+package visao;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class TelaViagens {
+	public static int menu = 0; // tipo primitivo, por estar fora do main é considerado um atributo, quando esta
+// dentro é uma variavel
+	public static Scanner leia = new Scanner(System.in); // objeto iniciado
+	public static ArrayList<String> viagens; // apenas estanciado
+
+	public static void main(String[] args) { // metodo main é o metodo principal, nesse programa ele vai rodar todo o
+// programa
+		viagens = new ArrayList<>(); // criar lista
+		viagens.add("Paraíba"); // lista
+		viagens.add("Acre");
+		viagens.add("Amazonas");
+		viagens.add("Amapá");
+		viagens.add("Minas Gerais");
+		viagens.add("Tocantins\n");
+
+		while (menu != 5) {
+
+			menu = menu(new String[] { "1 (Cadastro)", "2 (Listar)", "3 (Alterar)", "4 (Excluir)", "5 (Sair)\n" }); // vetor
+			switch (menu) {
+
+			case 1:
+				System.out.printf("Digite seu destino: \n");
+				viagens.add(leia.next());
+				break;
+			case 2:
+// for (int i = 1; i <= viagens.size(); i++) { //size pega o tamanho da lista
+// System.out.println (i+" "+viagens.get(i-1));
+// }
+				int i = 1;
+				for (String d : viagens) { // for it, mesma coisa que o for acima
+					System.out.println(i + " " + d);
+					i++;
+				}
+				break;
+			case 3:
+				System.out.print("Digite o indice do destino que deseja alterar: \n");
+				int indice = leia.nextInt() - 1;
+				System.out.print("Digite um novo destino: ");
+				String destino = leia.next();
+				viagens.set(indice, destino);
+				break;
+
+			case 4:
+				System.out.print("Digite o nome do destino que deseja excluir: \n");
+				String dest = leia.next();
+				if (viagens.contains(dest)) {
+					viagens.remove(viagens.indexOf(dest));
+					System.out.println("Excluido com sucesso!");
+				} else {
+					System.out.println("Destino não encontrado");
+				}
+				break;
+			case 5:
+				System.out.println("Até mais! \n");
+				break;
+			default:
+				System.out.println("Opção Inválida");
+			}
+		}
+	}
+	public static int menu(String[] itens) {
+		for (String i : itens) {
+			System.out.println(i);
+		}
+		return leia.nextInt();
+	}
+}

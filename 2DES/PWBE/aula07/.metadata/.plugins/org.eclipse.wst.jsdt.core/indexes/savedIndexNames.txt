@@ -1,0 +1,1 @@
+INDEX VERSION 1.4+C:\Users\Aluno.DSN5131112167\Desktop\Jaqueline\pwbe\aula07\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes

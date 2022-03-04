@@ -1,0 +1,8 @@
+4 - Realize o produto de  dois valores inteiros (registradores A e B), calcule o produto e atribuia no registrador D. Mantenham os valores originais dos registradores A e B, registrador C terminar com zero.
+
+MOV A, 5
+MOV B, 13
+MUL B
+MOV D, A
+MOV A, 5
+HLT

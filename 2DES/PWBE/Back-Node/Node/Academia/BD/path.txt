@@ -1,0 +1,3 @@
+source C:/Users/Aluno.DSN5131112167/Desktop/Node/BD/script.sql
+
+source C:/Users/DESENVOLVIMENTO/Desktop/Jaqueline/bdo/Academia/BD/academia.csv

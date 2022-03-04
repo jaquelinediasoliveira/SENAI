@@ -1,0 +1,10 @@
+package fonte;
+
+public class Vacinacao {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

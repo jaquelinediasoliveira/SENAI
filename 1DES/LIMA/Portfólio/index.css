@@ -1,0 +1,413 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto Slab', serif;
+    scroll-behavior: smooth;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    background-color: black;
+    position: fixed;
+    color: white;
+}
+
+header>img{
+    margin-right: 28%;
+    margin-left: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+header>h1{
+    letter-spacing: 5px;
+    margin-right: 80px;
+}
+
+header>#git>a, header>#insta>a{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+header>#git>img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+header>#git, header>#insta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5%;
+}
+
+header>#insta>img{
+    width: 40px;
+    height: 40px;
+}
+
+#tela1{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: sandybrown;
+}
+
+#tela1>h1{
+    font-size: 60px;
+    letter-spacing: 5px;
+}
+
+.circulo>#fundo>h1{
+    width: 50%;
+    height: 10%;
+}
+
+#fundo{
+    width: 20%;
+    height: 40%;
+    border-radius: 60%;
+    background-image: linear-gradient(to top, transparent, white);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 25px;
+    margin-top: 15%;
+}
+
+.scroll-down{
+    width: 40px;
+    height: 40px;
+    border: 6px solid white;
+    transform: rotate(45deg);
+    border-top: transparent;
+    border-left: transparent;
+    margin-top: 250%;
+}
+
+.body2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+
+.body2>h1{
+    color: white;
+    font-family: 'Rochester', cursive;
+    font-size: 40px;
+    margin-left: 50px;
+    letter-spacing: 10px;
+}
+
+.barra{
+    width: 5%;
+    height: 100%;
+    border: 2px solid white;
+    border-left: transparent;
+    border-top: transparent;
+    border-bottom: transparent;
+}
+
+.card>img{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    border-radius: 35%;
+    width: 20.5%;
+    height: 35%;
+}
+
+.card{
+    width: 35%;
+    height: 60%;
+}
+
+.infocard{
+    width: 80%;
+    height: 70%;
+    border-radius: 10%;
+    background-color: rgba(255, 255, 255, 0.678);
+    margin-top: -10%;
+    padding-top: 15%;
+    margin-left: 10%;
+}
+
+.infocard>h1{
+    font-size: 22px;
+    text-align: center;
+    margin: 5px;
+}
+
+.body3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: sandybrown;
+    text-align: center;
+}
+
+.body3>h1{
+    margin-top: 2%;
+    font-size: 200%;
+}
+
+.scroll-down1{
+    width: 40px;
+    height: 40px;
+    border: 6px solid white;
+    transform: rotate(45deg);
+    border-top: transparent;
+    border-left: transparent;
+    position: absolute;
+    margin-top: 19%;
+    left: 48.5%;
+    transition: 0.5s;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+    margin-top: 3%;
+}
+
+img{
+    max-width: 100%;
+}
+
+.card1>img, .card2>img, .card3>img{
+    width: 75%;
+    height: 80%;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
+
+.card1>img:hover, .card2>img:hover, .card3>img:hover{
+    -webkit-transform:scale(1.4);
+    transform:scale(1.4);
+}
+
+.card1, .card2, .card3{
+    width: 35%;
+    margin: 5px;
+    border-radius: 10%;
+    background-color: rgba(255, 255, 255, 0.733);
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.658);
+}
+
+@media (max-width: 963px){
+    header>img{
+        margin-right: 20%;
+    }
+
+    header>h1{
+        letter-spacing: 2px;
+        margin-right: 15px;
+    }
+
+    header>#git, header>#insta{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    #fundo{
+        width: 30%;
+    }
+
+    .infocard>h1{
+        font-size: 20px;
+    }
+
+    .scroll-down1{
+        margin-top: 29%;
+    }
+    
+    .card1>img:hover, .card2>img:hover, .card3>img:hover{
+    -webkit-transform:scale(2);
+    transform:scale(2);
+    }
+}
+
+@media (max-width: 900px){
+    header>img{
+        margin-right: 15%;
+    }
+
+    .card>img{
+        border-radius: 50%;
+        width: 30%;
+        height: 25%;
+    }
+
+    .infocard{
+        height: 80%;
+        padding-top: 13%;
+    }
+
+    .body3{
+        height: 100vh;
+    }
+
+    .body3>h1{
+        margin-top: 5%;
+        font-size: 190%;
+    }
+
+    .cards{
+        height: 80%;
+    }
+    .card1, .card2, .card3{
+        width: 38%;
+    }
+
+    .card1>img, .card2>img, .card3>img{
+        width: 75%;
+        height: 75%;
+    } 
+}
+
+@media (max-width: 867px){
+    header>img{
+        margin-right: 10%;
+    }
+}
+
+@media (max-width: 822px){
+    #fundo{
+        width: 36%;
+    }
+
+    .card1>img, .card2>img, .card3>img{
+        width: 80%;
+        height: 80%;
+    } 
+
+    .cards{
+        height: 65%;
+    }
+
+    .card1, .card2, .card3{
+        width: 49%;
+    }
+
+}
+
+@media (max-width: 806px){
+    header>img{
+        margin-right: 5%;
+    }
+}
+
+@media (max-width: 756px){
+    header>img{
+        margin-right: 2%;
+    }
+
+    header>h1{
+        margin-right: 15px;
+    }
+
+    #fundo{
+        width: 40%;
+        height: 40%;
+        margin-top: 30%;
+    }
+
+    .scroll-down{
+        margin-top: 250%;
+    }
+
+    .scroll-down1{
+        margin-top: 40%;
+    }
+}
+
+@media (max-width: 411px){
+    header>img{
+        margin-right: 5px;
+    }
+
+    header>h1{
+        margin: 2px;
+        margin-right: 15px;
+        font-size: 22px;
+    }
+
+    header>#git>img{
+        width: 35px;
+        height: 35px;
+    }
+
+    header>#git>a, header>#insta>a{
+        font-size: 15px;
+    }
+
+    header>#insta>img{
+        width: 30px;
+        height: 30px;
+    }
+
+    header>#git, header>#insta{
+        margin-left: 2%;
+    }
+
+    #tela1{
+        width: 120%;
+    }
+
+    .body2{
+        width: 120%;
+        flex-direction: column;
+    }
+    
+    .barra{
+        width: 0;
+        border: none;
+    }
+
+    .card{
+        width: 90%;
+        height: 60%;
+    }
+    
+    .infocard{
+        width: 90%;
+        height: 50%;
+        margin-top: -10%;
+        padding-top: 10%;
+        margin-left: 10%;
+    }
+    
+    .infocard>h1{
+        font-size: 22px;
+        text-align: center;
+        margin: 5px;
+    }
+
+    .body3{
+        width: 120%;
+    }
+}

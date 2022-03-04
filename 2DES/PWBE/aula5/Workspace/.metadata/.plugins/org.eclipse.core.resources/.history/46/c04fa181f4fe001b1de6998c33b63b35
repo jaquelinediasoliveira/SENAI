@@ -1,0 +1,34 @@
+package ctr;
+
+import java.util.ArrayList;
+import vo.NotaFiscal;
+import dao.NotaFiscalDAO;
+
+public class NotaFiscalProcess {
+	
+	public static ArrayList<NotaFiscal> compras;
+	public static NotaFiscalDAO nf = new NotaFiscalDAO();
+	
+	public static void testes() {
+		compras = new ArrayList<>();
+		compras.add(new NotaFiscal(1,"Tomate italiano", 5, 0.60, 3.00));
+		compras.add(new NotaFiscal(2,"Laranja", 5, 0.80, 4.00));
+		compras.add(new NotaFiscal(3,"Granola", 1, 10.90, 10.90));
+		compras.add(new NotaFiscal(4,"Torrada", 1, 8.39, 8.39));
+		compras.add(new NotaFiscal(5,"Milho", 1, 4.99, 5.00));
+		compras.add(new NotaFiscal(6,"Club Social", 1, 4.49, 4.50));
+		compras.add(new NotaFiscal(7,"Farinha de trigo", 2, 3.19, 6.40));
+	}
+	
+	public static void abrir() {
+		compras = nf.abrir();
+	}
+	
+	public static String salvar() {
+		if(nf.salvar(compras)) {
+			return "<p>Dados salvos com sucesso</p>";
+		}else {
+			return "<p>Erro ao salvar aquivo CSV</p>";
+		}
+	}
+}

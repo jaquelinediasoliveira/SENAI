@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\DESENVOLVIMENTO\Desktop\Jaqueline\pwbe\01_12\Atividade\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2068996154.index
+3046708319.index
+2581883304.index
+1668220617.index
+1000430491.index
+1219018327.index

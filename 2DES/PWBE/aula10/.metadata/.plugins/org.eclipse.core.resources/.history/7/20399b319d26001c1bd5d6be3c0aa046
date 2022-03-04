@@ -1,0 +1,97 @@
+package domains;
+
+import java.util.Date;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class Pedido {
+	private int idPedido;
+	private Cliente cliente;
+	private Entregador entregador;
+	private Date data;
+	private Date horaPedido;
+	private Date horaEntrega;
+	private Date horaFim;
+	
+	public Pedido() {
+	}
+
+	public Pedido(int idPedido, Cliente cliente, Entregador entregador, Date data, Date horaEntrega, Date horaFim) {
+		super();
+		this.idPedido = idPedido;
+		this.cliente = cliente;
+		this.entregador = entregador;
+		this.data = data;
+		this.horaEntrega = horaEntrega;
+		this.horaFim = horaFim;
+	}
+
+	public int getIdPedido() {
+		return idPedido;
+	}
+
+	public void setIdPedido(int idPedido) {
+		this.idPedido = idPedido;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Entregador getEntregador() {
+		return entregador;
+	}
+
+	public void setEntregador(Entregador entregador) {
+		this.entregador = entregador;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public Date getHoraEntrega() {
+		return horaEntrega;
+	}
+
+	public void setHoraEntrega(Date horaEntrega) {
+		this.horaEntrega = horaEntrega;
+	}
+
+	public Date getHoraFim() {
+		return horaFim;
+	}
+
+	public void setHoraFim(Date horaFim) {
+		this.horaFim = horaFim;
+	}
+
+	@Override
+	public String toString() {
+		return idPedido + "\t" + cliente + "\t" + entregador + "\t" + data + "\t" +  horaEntrega + "\t" + horaFim + "\n";
+	}
+	
+	public JSONObject toJSON() {
+		JSONObject json = new JSONObject();
+		try {
+			json.put("idPedido", idPedido);
+			json.put("cliente", cliente);
+			json.put("entregador", entregador);
+			json.put("data", data);
+			json.put("horaEntrega", horaEntrega);
+			json.put("horaFim", horaFim);
+		} catch (JSONException e) {
+			System.out.println("Erro ao converter JSON: "+e);
+		}
+		return json;
+	}
+}

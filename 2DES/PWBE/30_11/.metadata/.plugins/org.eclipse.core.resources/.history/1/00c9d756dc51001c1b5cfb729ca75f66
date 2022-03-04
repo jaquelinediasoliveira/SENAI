@@ -1,0 +1,34 @@
+package controller;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import model.Reservas;
+
+public class ReservasProcess {
+
+	PreparedStatement ps;
+	Connection con;
+	
+	public ReservasProcess() {
+		this.con = ConnectionDB.getConnection();
+	}
+	
+	public boolean create(Reservas reserva) {
+		
+		String query = "INSERT INTO reservas VALUES (DEFAULT, ?, ?, ?)";
+		
+		try {
+			ps = con.prepareStatement(query);
+			
+			ps.setString(1, reserva.getNomeLivro());
+			ps.setString(2, reserva.getNomePessoa());;
+			ps.setString(3, reserva.getDataDevolucao());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+}

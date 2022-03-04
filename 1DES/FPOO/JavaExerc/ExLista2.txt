@@ -1,0 +1,50 @@
+ex1 Lista 2
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]) {
+	Scanner input = new Scanner(System.in);
+	
+	int a, b, c, d, e, media;
+	
+	a = input.nextInt();
+	b = input.nextInt();
+	c = input.nextInt();
+	d = input.nextInt();
+	e = input.nextInt();
+	
+	media = (a + b + c + d + e)/5;
+	
+	System.out.printf("A media eh: %d", media);
+	
+	input.close();
+	}
+}
+-----------------------------------------------------
+ex2
+
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	
+	int a, b, c, d, media;
+	
+	a = input.nextInt();
+	b = input.nextInt();
+	c = input.nextInt();
+	d = input.nextInt();
+	
+	media = (a*2) + (b*3) + (c*4) + (d*5)/(2+3+4+5);
+	
+	System.out.printf("A media eh: %d", media);
+	
+	input.close();
+	}
+
+}
+---------------------------------------------------------

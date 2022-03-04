@@ -1,0 +1,8 @@
+1 - Atribuir nos registradores A e B dois valores. Efetue a soma dos registradores A e B e atribua no registrador D
+
+MOV A, 11
+MOV B, 7
+ADD A, B
+MOV D, A
+MOV A, 11 ;Soh para deixar certinho
+HLT

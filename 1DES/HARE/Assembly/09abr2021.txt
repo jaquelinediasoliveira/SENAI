@@ -1,0 +1,164 @@
+Assemly by Jaqueline
+
+8 bits-> 0;255-> se passar de 255 acontece um estouro
+
+Quando ocorre um estouro ou empréstimo o C do flags fica true
+O empréstimo é quando ocorre uma subtração de um número menor que o outro, ex.: 10-11
+
+A, B, C, D -> registers
+Z, C, F -> Flags
+
+Caso não estoure o C fica false
+
+O "C" se chama carry
+O "Z" se chama zero
+
+CMP -> Comparação
+JA -> Compara  se um valor é maior que outro (C = false && Z = false)
+JZ -> Pula se Z = true
+JNZ -> Pula se Z = false
+JC -> Pula se C = true
+JNC -> Pula se C = false
+JMP endereço -> Salto incondicional para uma posição específica
+
+Jump incondicional: pula para uma posição específica
+Jump condicional: pula somente dentro de uma condição
+
+https://schweigi.github.io/assembler-simulator/index.html
+
+Ex1
+
+mov A,10 ;atribuição
+
+mov B,5 ;atribuição
+
+CMP A,B ;comparação
+
+ja maior ;pular para a rotulo "maior" se A > B
+
+jmp fim ;pular para a rotulo "fim" sempre ira pular independente de condição
+
+
+maior: ;rotulo para que seja executado o pulo
+
+mov C,1 ;ação caso A > B
+
+
+fim: ;rotulo final ( sempre sera a ultima parte do processo )
+
+hlt ;comando de finalizar
+
+Ex2
+
+mov A,10 ;atribuição
+
+mov B,51 ;atribuição
+
+CMP A,B ;comparação
+
+jb menor ;pular para a rotulo "menor" se A < B
+
+jmp fim ;pular para a rotulo "fim" sempre ira pular independente de condição
+
+
+menor: ;rotulo para que seja executado o pulo
+mov C,1 ;ação caso A < B
+
+
+fim: ;rotulo final ( sempre sera a ultima parte do processo )
+
+hlt ;comando de finalizar
+
+Ex3
+
+mov A,5 ;atribuição
+
+mov B,6 ;atribuição
+
+CMP A,B ;comparação
+
+
+je igual ;pular para a rotulo "igual" se A == B
+
+jmp fim ;pular para a rotulo "fim" sempre ira pular independente de condição
+
+
+igual: ;rotulo para que seja executado o pulo
+
+mov C,1 ;ação caso A == B
+
+
+fim: ;rotulo final ( sempre sera a ultima parte do processo )
+
+hlt ;comando de finalizar
+
+Ex4
+ 
+
+;atribuir e comparar valores
+
+mov a,11
+
+mov b,11
+
+cmp a,b
+
+ ;comparadores
+
+ja maior
+
+jb menor
+
+je igual 
+;registradores de comparação
+
+maior:
+
+mov c,1
+
+jmp final
+
+igual:
+
+mov c,2
+
+jmp final
+
+menor:
+mov c,3
+
+final:
+
+hlt
+
+
+
+Meu código na prova
+
+mov A, 20
+mov B, 10
+mov C, 30
+
+CMP B, A ;Se A eh maior que B
+ja condicao1 ;C=False significa que eh
+jmp condicao1
+
+jmp condicao3 ;Se entrar aqui eh pq A<B
+condicao3:
+CMP B, C
+ja condicao4
+condicao4:
+mov D, C
+jmp condicao5 ;c<b
+
+condicao1:
+CMP C, A
+ja condicao2
+condicao2:
+mov D, A
+
+ja condicao6
+condicao6:
+mov D, B
+
+hlt ; Professor, jogo a toalha, me perdi no meu próprio código mas ta aí minha linha de raciocínio

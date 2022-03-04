@@ -1,0 +1,4 @@
+Pessoas completamente imunizadas:0
+Pessoas imunizadas apenas com uma dose:0
+Pessoas que tomaram a segunda dose com atraso:0
+Pessoas esperando a segunda dose com atraso:0

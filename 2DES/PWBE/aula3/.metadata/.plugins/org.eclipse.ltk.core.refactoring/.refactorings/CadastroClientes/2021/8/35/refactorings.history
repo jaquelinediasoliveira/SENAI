@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;CadastroClientes/docs/DiagramaClaseses.ucls&apos; to &apos;DiagramaClasses.ucls&apos;" description="Rename resource &apos;DiagramaClaseses.ucls&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="docs/DiagramaClaseses.ucls" name="DiagramaClasses.ucls" stamp="1630066059049" updateReferences="true"/>
+</session>

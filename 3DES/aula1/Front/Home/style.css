@@ -1,0 +1,101 @@
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+header{
+    display: flex;
+    border-bottom: none;
+    justify-content: space-between;
+}
+
+#img-logo{
+    width: 35%;
+}
+
+.Logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 30%;
+}
+
+.vazio{
+ width: 10%;
+}
+
+main{
+    width: 100%;
+    height: 90%;
+}
+
+.map{
+    width: 100vw;
+    height: 100%;
+}
+
+#alerta{
+    background: whitesmoke;
+    width: 50%;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    height: 10%;
+    -webkit-appearance: none;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+#cadastrar{
+    width: 50%;
+    height: 10%;
+    border-radius: 5px;
+    background: whitesmoke;
+    font-size: 15px;
+    border: none;
+}
+
+.modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-modal{
+    width: 85%;
+    height: 50%;
+    background-color: rgba(241, 231, 87, 0.589);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+#xis{
+    position: absolute;
+    top: 0.5px;
+    left: 15px;
+}
+
+#alerta>option{
+    background-color: red;
+}
+
+ul{
+    list-style: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+ul > li {
+    margin-bottom: 30%;
+}

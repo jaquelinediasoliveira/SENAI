@@ -1,0 +1,75 @@
+package visao;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+import controle.ProcessaViagens;
+import modelo.Viagem;
+
+public class FormViagens extends JFrame implements ActionListener {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel painel;
+	private JButton atualizar, sair;
+	private JTextArea texto;
+
+	FormViagens() {
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(800, 600);
+		setTitle("Registros de Visagens");
+		setLocationRelativeTo(null);
+		painel = new JPanel();
+		setContentPane(painel);
+		setLayout(null);
+
+		texto = new JTextArea(listarTodos());
+		texto.setBounds(20, 20, 745, 450);
+		texto.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		painel.add(texto);
+
+		atualizar = new JButton("Atualizar");
+		atualizar.setBounds(20, 480, 120, 30);
+		painel.add(atualizar);
+		atualizar.addActionListener(this);
+
+		sair = new JButton("Sair");
+		sair.setBounds(150, 480, 120, 30);
+		painel.add(sair);
+		sair.addActionListener(this);
+
+	}
+
+	public String listarTodos() {
+		String acumulador = "";
+		acumulador += "Origem\tDestino\tDistancia\tTempo\tVelociade\n";
+		for (Viagem v : ProcessaViagens.viagens) {
+			acumulador += v.toString();
+		}
+		acumulador += "Horas de vôo: " + ProcessaViagens.tempoTotal();
+		return acumulador;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) { 
+		if (e.getSource() == sair) {
+			dispose();
+		} else if (e.getSource() == atualizar) {
+			texto.setText(listarTodos()); 
+		}
+
+	}
+
+	public static void main(String[] args) {
+		ProcessaViagens.preencherTestes();
+		new FormViagens().setVisible(true);
+
+	}
+
+}

@@ -1,0 +1,64 @@
+ex1
+
+def soma(a, b, c):
+
+    conta = a + b + c
+
+    return conta
+
+
+
+valores = soma(10, 40, 30)
+
+print(valores)
+
+ex2
+
+def somaImposto(custo, taxaImposto):
+	valorImposto = taxaImposto * custo / 100
+	valorFinal = valorImposto + custo
+	print(f'o valor final é {valorFinal}')
+
+somaImposto()
+
+ex3
+
+def reverse_num(number):
+ 
+    n = number[::-1] #Estou atribuindo na variavel N o conteúdo Number invertido
+ 
+    print(n)
+
+
+
+a = input("Digite um numero: \n")
+
+reverse_num(a)
+
+https://www.educative.io/edpresso/how-do-you-reverse-a-string-in-python
+
+ex4
+
+def meses(mes):
+	meses = ["janeiro",
+ "fevereiro",
+ "março",
+ "abril",
+ "maio",
+ "junho", "julho",
+ "agosto",
+ "setembro",
+ "outubro",
+ "novembro",
+ "dezembro"]
+
+	data = input("informe a data (dd/mm/aaaa): ")
+
+	
+print (data.split("/")[0],
+ "de",
+ meses[(int(data.split("/")[1])-1)],
+ "de",
+ data.split("/")[2])
+
+meses(print("Digite a data: "))

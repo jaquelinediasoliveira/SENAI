@@ -1,0 +1,86 @@
+html, body{
+    margin: 0 5% 0 5%;
+    padding: 0;
+    width: 90%;
+    height: 100%;
+    background-color: gray;
+}
+
+header{
+    width: 100%;
+    height: 15%;
+    background-color: #F7F7F7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header>img{
+    width: 10%;
+    height: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 85%;
+    background-color: red;
+}
+
+.menu{
+    width: 20%;
+    height: 100%;
+    background-color: white;
+}
+
+.menu>table{
+    margin: 10% 0 0 15%;
+}
+
+td>img{
+    width: 15px;
+    height: 15px;
+}
+
+th, td{
+    border-bottom: 1px solid gray;
+    padding: 10px;
+}
+
+.produtos{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: grid;
+    grid-template-areas: "1fr 1fr 1fr" "1fr 1fr 1fr";
+    align-items: center;
+}
+
+.produto{
+    width: 51%;
+    height: 88%;
+    margin: 2% 0 0 25%;
+    border-radius: 10%;
+    background-color: #F7F7F7;
+    box-shadow: 1px 2px 1px gray;
+}
+
+.produto>img{
+    width: 97%;
+    height: 55%;
+    border-radius: 10%;
+    margin: 2px 2px 0px 2px;
+}
+
+.info{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.info>p{
+    font-size: 13.2px;
+}

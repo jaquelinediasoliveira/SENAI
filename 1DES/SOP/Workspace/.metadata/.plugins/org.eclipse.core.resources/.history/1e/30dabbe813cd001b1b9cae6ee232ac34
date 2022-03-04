@@ -1,0 +1,39 @@
+package visao;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class TelaViagens {
+	public static int menu = 0; //Atributo primitivo, não precisa do new
+	public static Scanner leia = new Scanner(System.in); //Objeto instanciado
+	public static ArrayList<String> viagens; 
+
+	public static void main(String[] args) {
+		viagens = new ArrayList<>(); //Objeto
+
+		while (menu != 3) {
+			menu = menu({ "1.Cadastro", "2.Listar", "3.Sair" });
+			switch(menu ) {
+			case 1:
+				System.out.println("Já já eu cadastro");
+				break;
+			case 2:
+				System.out.println("Daqui a pouco vou listar");
+				break;
+			case 3:
+				System.out.println("Até mais!");
+				break;
+			default:
+				System.out.println("Opção inválida");
+				break;
+			}
+		}
+	}
+
+	public static int menu(String[] itens) {
+		for (String i : itens) {
+			System.out.println(i);
+		}
+		return leia.nextInt();
+	}
+}

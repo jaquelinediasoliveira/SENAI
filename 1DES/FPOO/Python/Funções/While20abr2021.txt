@@ -1,0 +1,219 @@
+ex1 while
+
+catg_true = ['Limpeza','Alimentício','Higiene pessoal']
+
+prod_lst = []
+
+while True:
+
+	prod = input('Digite um produto:')
+
+	valor = float(input('Valor:'))
+
+while valor <= 0:
+
+	print('Valor inválido')
+
+	valor = float(input('Valor:'))
+
+
+qntd = int(input('Quantidade:'))
+
+while qntd <= 0:
+
+	print('Valor inválido')
+
+	qntd = int(input('Quantidade:'))
+
+catg = input('Digite a categoria:')
+
+while catg not in catg_true:
+
+	print('Categoria inválida','Categorias válidas:',catg_true)
+
+	catg = input('Digite a categoria:')
+
+
+prod_lst.append([prod, valor, qntd, catg])
+
+print(prod_lst)
+
+print('Deseja inserir novo item, S/N?')
+
+prod_novo = input()
+
+if prod_novo == 'S':
+
+	continue
+
+elif prod_novo == 'N':
+
+	break
+
+print('Fim das compras')
+
+ex2
+
+catg_true = ['Limpeza','Alimentício','Higiene pessoal']
+
+prod_lst = []
+
+valor_total = 0
+
+total_item = 0
+
+valor_final = 0
+
+while True:
+
+	prod = input('Digite um produto:')
+
+	valor = float(input('Valor:'))
+
+while valor <= 0:
+
+	print('Valor inválido')
+
+	valor = float(input('Valor:'))
+
+qntd = int(input('Quantidade:'))
+
+while qntd <= 0:
+
+	print('Valor inválido')
+
+	qntd = int(input('Quantidade:'))
+
+total_item += qntd
+
+valor_final = valor*qntd
+
+valor_total += valor_final
+
+catg = input('Digite a categoria:')
+
+while catg not in catg_true:
+
+	print('Categoria inválida','Categorias válidas:',catg_true)
+
+	catg = input('Digite a categoria:')
+
+
+prod_lst.append([prod, valor, qntd, catg])
+
+print(prod_lst)
+
+print('Deseja inserir novo item, S/N?')
+
+prod_novo = input()
+
+if prod_novo == 'S':
+
+	continue
+
+elif prod_novo == 'N':
+
+	break
+
+print(f'O quantidade de produtos: {total_item}')
+
+print(f'O valor final: {valor_total}')
+
+print('Fim das compras')
+
+ex3
+
+catg_true = ['Limpeza','Alimentício','Higiene pessoal']
+
+prod_lst = []
+
+valor_total = 0
+
+total_item = 0
+
+valor_final = 0
+
+while True:
+
+	prod = input('Digite um produto:')
+
+valor = float(input('Valor:'))
+
+while valor <= 0:
+
+	print('Valor inválido')
+
+valor = float(input('Valor:'))
+
+qntd = int(input('Quantidade:'))
+
+while qntd <= 0:
+
+	print('Valor inválido')
+
+qntd = int(input('Quantidade:'))
+
+total_item += qntd
+
+valor_final = valor*qntd
+
+valor_total += valor_final
+
+catg = input('Digite a categoria:')
+
+while catg not in catg_true:
+
+	print('Categoria inválida','Categorias válidas:',catg_true)
+
+catg = input('Digite a categoria:')
+
+
+prod_lst.append([prod, valor, qntd, catg])
+
+print(prod_lst)
+
+print('Deseja inserir novo item, S/N?')
+
+	prod_novo = input()
+
+if prod_novo == 'S':
+
+	continue
+
+elif prod_novo == 'N':
+
+	break
+
+print(f'O quantidade de produtos: {total_item}')
+
+print(f'O valor final: {valor_total}')
+
+print('Fim das compras')
+
+
+while True:
+
+for index in range(0,len(prod_lst)):
+
+	print(index,':',prod_lst[index][0])
+
+nov = input('Deseja remover um item da lista, S/N?')
+
+if nov == 'S':
+
+	indice2remove = int(input('Digite o índice do produto a ser excluído:'))
+
+if 0 <= indice2remove <= len(prod_lst)-1: #Indice no intervalo correto
+
+prod_lst.pop(indice2remove)
+
+print('Exclusão concluída')
+
+else: #Indice fora do intervalo
+
+print('Não foi possível a exclusão do produto')
+
+
+elif nov == 'N':
+
+	break
