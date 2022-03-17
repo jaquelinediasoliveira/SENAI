@@ -7,7 +7,7 @@ import { Feather } from '@expo/vector-icons';
 export default function CadastrarFuncionario({navigation}){
     return(
         <View style={global.body}>
-            <Image style={global.image} source={require("../assets/logo.png")}/>
+            <Image style={global.image} source={require("../../assets/logo.png")}/>
             <View style={css.scrollView}>
                 <ScrollView>
                     <TextInput placeholder="Nome..." place style={global.info}></TextInput>
@@ -18,7 +18,7 @@ export default function CadastrarFuncionario({navigation}){
                     <TextInput placeholder="Sexo..." style={global.info}></TextInput>
                     <TextInput placeholder="Data admissão..." style={global.info}></TextInput>
                     <View style={{flexDirection: "row", alignSelf: "center", marginTop: "5%"}}>
-                        <Image source={require("../assets/user.png")} style={global.imageUser}/>
+                        <Image source={require("../../assets/user.png")} style={global.imageUser}/>
                         <View style={css.imageAlign}>
                             <Feather name="camera" size={24} color="blue" />
                             <Text style={{color: "blue"}}>Adicionar foto</Text>
