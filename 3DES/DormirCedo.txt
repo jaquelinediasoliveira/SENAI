@@ -1,0 +1,143 @@
+import React, { useState, useEffect} from 'react';
+import { StyleSheet, View, Text, Image, TouchableOpacity, ScrollView, TextInput, FlatList } from 'react-native';
+
+import global from "../../Global/Style"
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+export default function ListarFuncionario({navigation}){
+    const[searchText, setSearchText] = useState("");
+    const[lista, setLista] = useState([]);
+
+    const Listar = () => {
+        setLista(cardsFicticios)
+    }
+    
+const cardsFicticios = [
+    {
+        id: 1,
+        foto: "../../assets/user.png",
+        nome: "Marcia",
+        matricula: "0001"
+    },
+    {
+        id: 2,
+        foto: "../../assets/user.png",
+        nome: "fabi",
+        matricula: "0002"
+    },
+    {
+        id: 3,
+        foto: "../../assets/user.png",
+        nome: "paula",
+        matricula: "0003"
+    }
+]
+
+    const ordenar = () => {
+        let novaLista = [...lista];
+    
+        novaLista.sort((a, b) => (a.nome > b.nome) ? 1 : (b.nome > a.nome) ? -1 : 0);
+
+        setLista(novaLista);
+        console.log(novaLista);
+    }
+
+    useEffect(() => {
+        Listar();
+        if (searchText === ''){
+            setLista(cardsFicticios);
+        } else {
+            setLista(
+                cardsFicticios.filter(item => (item.nome.toLowerCase().indexOf(searchText.toLowerCase()) > -1))
+            )
+        }
+     }, [searchText]);
+
+//     const Listar = () => {
+//       fetch(`http://10.87.207.27:3000/funcionarios`)
+//     .then(resp => {return resp.json()})
+//     .then(data => {
+//         setLista(data);
+//     })
+//     .catch(err => { console.log(err) });
+//   }
+
+    return(
+        <View style={css.body}>
+            <View style={css.filtro}>
+                <TextInput placeholder="Pesquise uma pessoa" placeholderTextColor= "black" style={css.pesquisa} value={searchText} onChangeText={(t) => setSearchText(t)}></TextInput>
+                <TouchableOpacity onPress={() => {ordenar()}}>
+                    <MaterialCommunityIcons name="order-alphabetical-ascending" size={24} color="white" />
+                </TouchableOpacity>
+            </View>
+            <View style={css.scrollView}>
+                <ScrollView>
+                    {
+                        lista.map((item, index) =>{
+                            return (
+                                <TouchableOpacity style={global.cardInfo} key={index} onPress={() => {navigation.navigate("VerFuncionario")}}>
+                                    <Image source={{uri: item.foto}} style={global.imageUser}/>
+                                    <View style={css.cardTxt}>
+                                        <Text style={global.textInfo}>{item.nome}</Text>
+                                        <Text style={global.textInfo}>{item.matricula}</Text>
+                                    </View>
+                                </TouchableOpacity> 
+                            )
+                        })
+                    }
+                    {/* {
+                        lista.map((item,index) => {
+                            console.log(item)
+                            return(
+                                <TouchableOpacity style={global.cardInfo} key={index} onPress={() => {navigation.navigate("VerFuncionario")}}>
+                                    <Image source={item.foto} style={global.imageUser}/>
+                                    <View style={css.cardTxt}>
+                                        <Text style={global.textInfo}>{item.nome}</Text>
+                                        <Text style={global.textInfo}>{item.matricula}</Text>
+                                    </View>
+                                </TouchableOpacity> 
+                             )
+                        })
+                    }  */}
+                </ScrollView>
+            </View>
+        </View>
+    )
+}
+const css = StyleSheet.create({
+    body:{
+        flex: 1,
+        backgroundColor: "#166B8A",
+        alignItems: "center",
+    },
+    scrollView: {
+        width: "100%",
+        height: 580
+    },
+    cardTxt: {
+        width: "70%",
+        alignItems: "center",
+    },
+    filtro:{
+        width: "90%",
+        height: "10%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        alignSelf: "flex-end",
+        marginTop: "5%"
+    },
+    pesquisa:{
+        backgroundColor: "white",
+        width: "70%",
+        height: "70%",
+        borderRadius: 10,
+        padding: 5
+    },
+    flat:{
+        width: "100%",
+        height: "90%",
+    }
+})
